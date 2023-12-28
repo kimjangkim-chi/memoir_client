@@ -15,3 +15,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "MemoirClient"
 include(":app")
+include(":data")
+include(":presentaion")
+include(":domain")
