@@ -86,6 +86,8 @@ fun MemoirApp() {
 
     }
 
+
+
 }
 
 @Composable
@@ -108,45 +110,6 @@ fun bottomAppButton() {
     }
 }
 
-
-//@OptIn(ExperimentalMaterial3Api::class)
-//@Composable
-//fun topAppBar(modifier: Modifier = Modifier) {
-//
-//    TopAppBar(
-////        windowInsets = AppBarDefaults.topAppBarWindowInsets,
-//        title = { Text("APP_NAME") },
-//        navigationIcon = {
-//            IconButton(onClick = { /* doSomething() */ }) {
-//                Icon(Icons.Filled.Home, contentDescription = null)
-//            }
-//        },
-//        actions = {
-//            // RowScope here, so these icons will be placed horizontally
-//            IconButton(onClick = { navController.navigate("search") }) {
-//                Icon(Icons.Filled.Search, contentDescription = "search")
-//            }
-//            IconButton(onClick = { navController.navigate("add") }) {
-//                Icon(Icons.Filled.Add, contentDescription = "add")
-//            }
-//            IconButton(onClick = { navController.navigate("settings") }) {
-//                Icon(Icons.Filled.Settings, contentDescription = "settings")
-//            }
-//        }
-//    )
-//}
-
-//@Composable
-//fun ScreenContent(color: Color, label: String) {
-//    Box(
-//        modifier = Modifier
-//            .fillMaxSize()
-//            .background(color),
-//        contentAlignment = Alignment.Center
-//    ) {
-//        Text(text = label, style = MaterialTheme.typography.bodyLarge, color = Color.Black)
-//    }
-//}
 
 @Preview(showBackground = true)
 @Composable

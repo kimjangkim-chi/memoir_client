@@ -39,7 +39,7 @@ fun MemoirTabRow(
 ) {
     Surface(
         Modifier
-            .height(100.dp)
+            .height(56.dp)
             .fillMaxWidth()
     ) {
         Row(Modifier.selectableGroup()) {
