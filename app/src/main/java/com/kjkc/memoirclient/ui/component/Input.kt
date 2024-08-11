@@ -172,7 +172,7 @@ fun OneLineTextFieldWithColorButton(
 
 @Preview(showBackground = true)
 @Composable
-fun MemoirPreview() {
+fun MemoirPreviewOneLineTextField() {
     MemoirClientTheme {
         Column(
             modifier = Modifier
@@ -180,7 +180,35 @@ fun MemoirPreview() {
                 .padding(16.dp) // 추가된 패딩으로 각 항목 사이에 여백을 줍니다.
         ) {
             OneLineTextField()
+        }
+
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun MemoirPreviewMultiLineTextField() {
+    MemoirClientTheme {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp) // 추가된 패딩으로 각 항목 사이에 여백을 줍니다.
+        ) {
             MultiLineTextField()
+        }
+
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun MemoirPreviewOneLineTextFieldWithColorButton() {
+    MemoirClientTheme {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp) // 추가된 패딩으로 각 항목 사이에 여백을 줍니다.
+        ) {
             OneLineTextFieldWithColorButton()
         }
 
