@@ -30,8 +30,11 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
@@ -47,19 +50,21 @@ import com.kjkc.memoirclient.ui.theme.MemoirClientTheme
 
 
 @Composable
-fun OneLineTextField() {
+fun OneLineTextField(
+    modifier: Modifier = Modifier,
+    content: String = "텍스트를 입력하세요."
+) {
 
-    val textState = remember { mutableStateOf(TextFieldValue("")) }
+    var textState = rememberSaveable { mutableStateOf(content) }
 
     Surface(
-        Modifier
+        modifier = modifier
             .height(56.dp)
             .fillMaxWidth()
     ) {
         OutlinedTextField(
             value = textState.value,
             onValueChange = { textState.value = it },
-            label = { },
             modifier = Modifier
                 .fillMaxWidth()
                 .fillMaxHeight(),
@@ -67,7 +72,7 @@ fun OneLineTextField() {
             singleLine = true,
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
             textStyle = TextStyle(
-                fontSize = 40.sp,
+//                fontSize = 40.sp,
                 color = Color.Black
             )
         )
@@ -75,12 +80,15 @@ fun OneLineTextField() {
 }
 
 @Composable
-fun MultiLineTextField() {
-    val textState = remember { mutableStateOf(TextFieldValue("")) }
-    val scrollState = rememberScrollState()
+fun MultiLineTextField(
+    modifier: Modifier = Modifier,
+    content: String = "텍스트를 입력하세요."
+) {
+    var textState = remember { mutableStateOf(TextFieldValue(content)) }
+    var scrollState = rememberScrollState()
 
     Surface(
-        Modifier
+        modifier = modifier
             .height(504.dp)
             .fillMaxWidth()
     ) {
@@ -89,8 +97,8 @@ fun MultiLineTextField() {
                 .fillMaxWidth()
                 .fillMaxHeight()
                 .border(1.dp, Color.Gray,  RoundedCornerShape(6.dp))
-                .background(Color.White)
-                .padding(8.dp)
+                .background(Color.White) // kjkc 컴포넌트로 변경 필요
+                .padding(16.dp)
                 .verticalScroll(scrollState)
         ) {
             BasicTextField(
@@ -101,8 +109,8 @@ fun MultiLineTextField() {
                     .fillMaxHeight(),
                 singleLine = false,
                 textStyle = TextStyle(
-                    fontSize = 40.sp,
-                    color = Color.Black
+//                    fontSize = 40.sp, // kjkc 컴포넌트로 변경 필요
+                    color = Color.Black // kjkc 컴포넌트로 변경 필요
                 ),
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Phone
@@ -113,19 +121,21 @@ fun MultiLineTextField() {
 }
 
 @Composable
-fun OneLineTextFieldWithColorButton() {
+fun OneLineTextFieldWithColorButton(
+    modifier: Modifier = Modifier,
+    content: String = "텍스트를 입력하세요."
+) {
 
-    val textState = remember { mutableStateOf(TextFieldValue("")) }
+    var textState = rememberSaveable { mutableStateOf(content) }
 
     Surface(
-        Modifier
+        modifier = modifier
             .height(56.dp)
             .fillMaxWidth()
     ) {
         OutlinedTextField(
             value = textState.value,
             onValueChange = { textState.value = it },
-            label = { },
             modifier = Modifier
                 .fillMaxWidth()
                 .fillMaxHeight(),
@@ -133,14 +143,14 @@ fun OneLineTextFieldWithColorButton() {
             singleLine = true,
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
             textStyle = TextStyle(
-                fontSize = 40.sp,
-                color = Color.Black
+//                fontSize = 40.sp, // kjkc 컴포넌트로 변경 필요
+                color = Color.Black // kjkc 컴포넌트로 변경 필요
             ),
             trailingIcon = {
                 Box(
                     modifier = Modifier
                         .size(30.dp)
-                        .background(Color.Magenta, shape = RoundedCornerShape(6.dp))
+                        .background(Color.Magenta, shape = RoundedCornerShape(6.dp)) // kjkc 컴포넌트로 변경 필요
                         .clickable { /* 버튼 클릭 시 동작 추가 */ }
                 ) {
                     IconButton(
@@ -149,7 +159,7 @@ fun OneLineTextFieldWithColorButton() {
                         Icon(
                             imageVector = Icons.Default.Check,
                             contentDescription = "Trailing Icon",
-                            tint = Color.White
+                            tint = Color.White // kjkc 컴포넌트로 변경 필요
                         )
                     }
                 }
